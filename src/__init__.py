@@ -2,6 +2,11 @@ import CONFIG_HANDLER, sys
 import DATA as datas
 import API
 
+"""
+credits
+https://code.tutsplus.com/tutorials/how-to-download-files-in-python--cms-30099
+"""
+
 if sys.argv == []:
     print(datas.usage)
     sys.exit(1)
