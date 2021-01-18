@@ -26,8 +26,14 @@ elif sys.argv[1] == "install":
     api = API.parse(loaded)
     sys.exit(127) #mimics the shell command not found error code
 elif sys.argv[1] == "remove":
+    print("Loading API...")
+    loaded = API.api()
+    api = API.parse(loaded)
     sys.exit(127)
 elif sys.argv[1] == "list" or sys.argv[1] == "show":
+    print("Loading API...")
+    loaded = API.api()
+    api = API.parse(loaded)
     sys.exit(127)
 elif "-v" in sys.argv or "--version" in sys.argv: 
     print(datas.version)
