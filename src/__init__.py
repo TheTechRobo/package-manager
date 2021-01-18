@@ -9,11 +9,19 @@ https://www.kite.com/python/answers/how-to-read-a-dictionary-from-a-file-in--pyt
 https://stackoverflow.com/a/7689085/9654083
 """
 
-def APILoad():
-    print("Loading API...")
-    loaded = API.api()
-    api = API.parse(loaded)
-    return api
+APILoad = API.APILoad
+
+try:
+    with open("%s/initialised","r") as file:
+        pass
+except Exception:
+    print("TheTechRobo's packaged manager doesn't seem to be initialised. Initialise now? (Y/n)")
+    init = input().lower()
+    if init[0] == "y":
+        print("Initialising initialisation.")
+        sys.exit(127)
+    else:
+        sys.exit(3)
 
 if sys.argv == []:
     print(datas.usage)

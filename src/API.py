@@ -15,3 +15,10 @@ def api():
 def parse(objInput):
     import ast
     return ast.literal_eval(objInput)
+
+def APILoad():
+    print("Loading API...")
+    loaded = api()
+    api = parse(loaded)
+    return api
+
