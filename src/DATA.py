@@ -9,3 +9,8 @@ usage = ("Commands are:\n"
         "    thetechrobo list mathmod\n"
         "\nThanks for using TheTechRobo's package manager!"
 )
+
+vRaw = "v.0.0.1"
+version = "This is TheTechRobo Package Manager (TTRPM) %s. Thanks for using!" % vRaw
+
+unknown = "Could not understand what you mean. We'll show you the usage.\n%s" % usage
