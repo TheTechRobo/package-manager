@@ -58,9 +58,9 @@ elif "--help" in sys.argv:
 elif "-v" in sys.argv or "--version" in sys.argv: 
     print(datas.version)
 elif cmd == "install": 
-    api = APILoad()
+    apiDict = APILoad()
     try:
-        pUrl = api[packName[url]]
+        pUrl = apiDict[packName["download"]]
     except KeyError:
         print("Could not find the requested package")
         sys.exit(4)

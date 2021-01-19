@@ -19,6 +19,5 @@ def parse(objInput):
 def APILoad():
     print("Loading API...")
     loaded = api()
-    api = parse(loaded)
-    return api
-
+    result = parse(loaded)
+    return result
