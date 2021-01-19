@@ -8,8 +8,8 @@ import tempfile
 from pathlib import Path
 
 #CONSTANTS
-HOME = os.expanduser("~")
-BASE_PATH = "%s/.local/bin/thetechrobopackagemanager" % HOME
+HOME = os.path.expanduser("~")
+BASE_PATH = "%s/.local/share/thetechrobopackagemanager" % HOME
 
 """
 credits
@@ -21,6 +21,10 @@ https://stackoverflow.com/a/3451150/9654083
 
 APILoad = API.APILoad
 
+try:
+    cmd = sys.argv[1]
+except Exception: 
+    cmd = None
 try:
     with open("%s/initialised" % BASE_PATH,"r") as file:
         pass
@@ -51,7 +55,7 @@ elif "--help" in sys.argv:
     sys.exit()
 elif "-v" in sys.argv or "--version" in sys.argv: 
     print(datas.version)
-elif sys.argv[1] == "install": 
+elif cmd == "install": 
     api = APILoad()
     try:
         pUrl = api[packName[url]]
@@ -65,10 +69,10 @@ elif sys.argv[1] == "install":
         with ZipFile("%s/tmp/TEMP.zip" % BASE_PATH, "r") as zip_ref:
             zip_ref.extractall("%s/stuff" % BASE_PATH)
     sys.exit()
-elif sys.argv[1] == "remove":
+elif cmd == "remove":
     api = APILoad()
     sys.exit(127)
-elif sys.argv[1] == "list" or sys.argv[1] == "show":
+elif cmd == "list" or cmd == "show":
     api = APILoad()
     sys.exit(127)
 elif "-v" in sys.argv or "--version" in sys.argv: 
