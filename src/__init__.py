@@ -1,7 +1,6 @@
 import CONFIG_HANDLER, sys
 import DATA as datas
 import API
-from io import BytesIO #https://stackoverflow.com/a/5711095/9654083
 from zipfile import ZipFile
 import requests
 import os
@@ -33,10 +32,10 @@ packName = sys.argv[2]
 if sys.argv == []:
     print(datas.usage)
     sys.exit(1)
-elif "-h" in sys.argv: 
+elif "-h" in sys.argv:
     print(datas.usage)
     sys.exit()
-elif "--help" in sys.argv: 
+elif "--help" in sys.argv:
     print(datas.usage)
     sys.exit()
 elif "-v" in sys.argv or "--version" in sys.argv: 
