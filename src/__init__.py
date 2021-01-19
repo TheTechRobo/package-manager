@@ -18,6 +18,7 @@ https://www.kite.com/python/answers/how-to-read-a-dictionary-from-a-file-in--pyt
 https://stackoverflow.com/a/7689085/9654083
 https://stackoverflow.com/a/3451150/9654083
 https://stackoverflow.com/a/34603829/9654083
+https://stackoverflow.com/a/273227/9654083
 """
 
 APILoad = API.APILoad
