@@ -5,9 +5,11 @@ from zipfile import ZipFile
 import requests
 import os
 import tempfile
+from pathlib import Path
 
 #CONSTANTS
-BASE_PATH = "~/.local/bin/thetechrobopackagemanager"
+HOME = os.expanduser("~")
+BASE_PATH = "%s/.local/bin/thetechrobopackagemanager" % HOME
 
 """
 credits
@@ -27,10 +29,17 @@ except Exception:
     init = input().lower()
     if init[0] == "y":
         print("Initialising initialisation.")
-        sys.exit(127)
+        Path("%s/stuff"% BASE_PATH).mkdir(parents=True, exist_ok=True)
+        Path("%s/tmp"% BASE_PATH).mkdir(parents=True, exist_ok=True)
+        Path("%s/confs"% BASE_PATH).mkdir(parents=True, exist_ok=True)
+        Path('%s/confs/conf.ini' % BASE_PATH).touch()
+        Path('%s/initialised' % BASE_PATH).touch()
     else:
         sys.exit(3)
-packName = sys.argv[2]
+try:
+    packName = sys.argv[2]
+except IndexError:
+    packName = None
 if sys.argv == []:
     print(datas.usage)
     sys.exit(1)
