@@ -40,6 +40,10 @@ except Exception:
         Path("%s/confs"% BASE_PATH).mkdir(parents=True, exist_ok=True)
         Path('%s/confs/conf.ini' % BASE_PATH).touch()
         Path('%s/initialised' % BASE_PATH).touch()
+        print("Please add this to the end of your shell's launch script (e.g. .zshrc, .bash_profile, etc):")
+        print("export PATH=$PATH:%s/*" % BASE_PATH)
+        print("Then come back.")
+        sys.exit(0)
     else:
         sys.exit(3)
 try:
