@@ -1,1 +1,1 @@
-{"testpackage": {"version": "0.0.0", "author": "Example Person", "download": "https://example.com"}}
+{"testpackage": {"version": "0.0.0", "author": "Example Person", "download": "https://example.com"}, "palc": {"version": "v.0.10.2-stable", "author": "TheTechRobo", "download": "https://github.com/TheTechRobo/python-text-calculator/archive/v.0.10.2-stable.zip"}}
