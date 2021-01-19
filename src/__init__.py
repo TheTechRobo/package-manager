@@ -60,10 +60,18 @@ elif "-v" in sys.argv or "--version" in sys.argv:
 elif cmd == "install": 
     apiDict = APILoad()
     try:
-        pUrl = apiDict[packName["download"]]
+        pDict = apiDict[packName]
+        pUrl = pDict["download"]
+        pV = pDict["version"]
+        pAuthor = pDict["author"]
     except KeyError:
         print("Could not find the requested package")
         sys.exit(4)
+    print("Going to install package %s, by %s, version %s. URL: %s" % (packName, pAuthor, pV, pUrl))
+    Yn = input("Is this OK? ").lower()
+    if Yn[0] != "y":
+        print("Abort.")
+        sys.exit(5)
     res = requests.get(pUrl)
     if res.status_code == 200: 
         with open("%s/tmp/TEMP.zip" % BASE_PATH, "wb") as file:

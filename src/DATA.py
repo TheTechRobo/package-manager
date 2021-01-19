@@ -13,6 +13,7 @@ usage = ("Commands are:\n"
         "2 - Could not load API; "
         "3 - User does not want to initialise the package manager; "
         "4 - Could not find requested package; "
+        "5 - User cancelled operation; "
         "0 - All operations successful."
 )
 
