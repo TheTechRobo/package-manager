@@ -4,6 +4,7 @@ import API
 from zipfile import ZipFile
 import requests
 import os
+import tempfile
 
 #CONSTANTS
 BASE_PATH = "~/.local/bin/thetechrobopackagemanager"
@@ -13,6 +14,7 @@ credits
 https://code.tutsplus.com/tutorials/how-to-download-files-in-python--cms-30099
 https://www.kite.com/python/answers/how-to-read-a-dictionary-from-a-file-in--python
 https://stackoverflow.com/a/7689085/9654083
+https://stackoverflow.com/a/3451150/9654083
 """
 
 APILoad = API.APILoad
@@ -49,10 +51,11 @@ elif sys.argv[1] == "install":
         sys.exit(4)
     res = requests.get(pUrl)
     if res.status_code == 200: 
-        with open("%s/tmp/TEMP.zip", "wb") as file:
+        with open("%s/tmp/TEMP.zip" % BASE_PATH, "wb") as file:
             file.write(res.content)
-        
-    sys.exit(127) #mimics the shell command not found error code
+        with ZipFile("%s/tmp/TEMP.zip" % BASE_PATH, "r") as zip_ref:
+            zip_ref.extractall("%s/stuff" % BASE_PATH)
+    sys.exit()
 elif sys.argv[1] == "remove":
     api = APILoad()
     sys.exit(127)
